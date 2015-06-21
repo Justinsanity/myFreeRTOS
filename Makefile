@@ -59,15 +59,17 @@ OBJS += \
       $(PWD)/CORTEX_M4F_STM32F407ZG-SK/startup/system_stm32f4xx.o \
       #$(PWD)/CORTEX_M4F_STM32F407ZG-SK/stm32f4xx_it.o \
 
+RTOS = $(PWD)/FreeRTOS
+
 OBJS += \
-      $(PWD)/croutine.o \
-      $(PWD)/event_groups.o \
-      $(PWD)/list.o \
-      $(PWD)/queue.o \
-      $(PWD)/tasks.o \
-      $(PWD)/timers.o \
-      $(PWD)/portable/GCC/ARM_CM4F/port.o \
-      $(PWD)/portable/MemMang/heap_1.o \
+      $(RTOS)/croutine.o \
+      $(RTOS)/event_groups.o \
+      $(RTOS)/list.o \
+      $(RTOS)/queue.o \
+      $(RTOS)/tasks.o \
+      $(RTOS)/timers.o \
+      $(RTOS)/portable/GCC/ARM_CM4F/port.o \
+      $(RTOS)/portable/MemMang/heap_1.o \
 
 OBJS += \
     $(PWD)/CORTEX_M4F_STM32F407ZG-SK/Libraries/STM32F4xx_StdPeriph_Driver/src/misc.o \
@@ -93,8 +95,8 @@ CFLAGS += -I $(PWD)/CORTEX_M4F_STM32F407ZG-SK/game
 
 CFLAGS += -DUSE_STDPERIPH_DRIVER
 CFLAGS += -I $(PWD)/CORTEX_M4F_STM32F407ZG-SK \
-	  -I $(PWD)/include \
-	  -I $(PWD)/portable/GCC/ARM_CM4F \
+	  -I $(RTOS)/include \
+	  -I $(RTOS)/portable/GCC/ARM_CM4F \
 	  -I $(PWD)/CORTEX_M4F_STM32F407ZG-SK/board \
 	  -I $(PWD)/CORTEX_M4F_STM32F407ZG-SK/Libraries/CMSIS/Device/ST/STM32F4xx/Include \
 	  -I $(PWD)/CORTEX_M4F_STM32F407ZG-SK/Libraries/CMSIS/Include \
